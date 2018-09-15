@@ -1,0 +1,16 @@
+{
+    "name": "Personell",
+    "alias": "personell",
+    "description": "",
+    "keywords": [],
+    "active": 1,
+    "order": 0,
+    "providers": [
+        "Admin\\Personell\\Providers\\PersonellServiceProvider"
+    ],
+    "aliases": {},
+    "files": [
+        "start.php"
+    ],
+    "requires": []
+}
