@@ -2,8 +2,12 @@
 
 namespace Admin\Personell\Providers;
 
+use Admin\Personell\Models\Contact;
+use Admin\Personell\Models\Employee;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Admin\Personell\Observers\ContactObserver;
+use Admin\Personell\Observers\EmployeeObserver;
 
 class PersonellServiceProvider extends ServiceProvider
 {
@@ -26,6 +30,9 @@ class PersonellServiceProvider extends ServiceProvider
         $this->registerViews();
         $this->registerFactories();
         $this->loadMigrationsFrom(__DIR__ . '/../Database/Migrations');
+
+        Contact::observe(ContactObserver::class);
+        Employee::observe(EmployeeObserver::class);
     }
 
     /**
@@ -91,7 +98,7 @@ class PersonellServiceProvider extends ServiceProvider
 
     /**
      * Register an additional directory of factories.
-     * 
+     *
      * @return void
      */
     public function registerFactories()
