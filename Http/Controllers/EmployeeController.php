@@ -9,6 +9,7 @@ use Illuminate\Routing\Controller;
 use Admin\Personell\Models\Contact;
 use Admin\Personell\Models\Employee;
 use Admin\Personell\Http\Resources\EmployeesData;
+use Admin\Personell\Http\Requests\CreateEmployeeRequest;
 
 class EmployeeController extends Controller
 {
@@ -39,34 +40,31 @@ class EmployeeController extends Controller
      * @param  Request $request
      * @return Response
      */
-    public function store(Request $request)
+    public function store(CreateEmployeeRequest $request)
     {
 
         try{
             $EMP = \DB::transaction(function () use($request) {
 
-                $request->merge([
-                    'password' =>bcrypt($request->password)
-                ]);
-                $NewUser = User::create($request->all());
+                $password = bcrypt($request->password);
+                $request->merge(compact('password'));
 
-                $Employee  = Employee::create(['user_id' => $NewUser->id]);
-                $Employee->fill($request->all())->save();
+                $user  = User::create($request->all());
+                $group = $user->group;
 
-                $Contact  = Contact::create(['user_id' => $NewUser->id]);
-                $Contact->fill($request->all())->save();
+                $request->merge(['user_id' => $user->id]);
 
-                return [
-                    'user' => $user = $NewUser->first(),
-                    'employee' => $Employee->first(),
-                    'contact' => $Contact->first(),
-                    'group' => $user->group
-                ];
+                $employee  = Employee::create($request->all());
+
+                $contact  = Contact::create($request->all());
+
+                return compact('user', 'group', 'employee', 'contact');
 
             });
             return response()->json($EMP);
 
         } catch(\Exception $e){
+
             return response('Error: '.$e->getMessage(), 500);
         }
 
@@ -76,9 +74,10 @@ class EmployeeController extends Controller
      * Show the specified resource.
      * @return Response
      */
-    public function show()
+    public function show($id)
     {
-        return view('personell::show');
+        $employee = User::find($id)->employee;
+        return view('personell::employees.show', get_defined_vars());
     }
 
     /**

@@ -1,5 +1,5 @@
 <template>
-    <div id="employee-viewer">
+    <div id="employee-data">
 
         <form action="" method="post">
             <form-group :type="'text'"></form-group>
@@ -9,7 +9,7 @@
 
 <script>
 export default {
-    name: "employee-view",
+    name: "employee-data",
     props: ["model", "employee"],
     data(){
         return{

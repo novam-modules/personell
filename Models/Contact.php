@@ -14,4 +14,13 @@ class Contact extends Model
     {
         return $this->first_name." ".$this->last_name;
     }
+
+    public function setNameAttribute($name)
+    {
+        $nameParts = explode(" ", $name);
+        $this->attributes['first_name'] = array_pop($nameParts);
+        $this->attributes['last_name'] = implode(" ", $nameParts);
+        unset($this->attributes['name']);
+
+    }
 }

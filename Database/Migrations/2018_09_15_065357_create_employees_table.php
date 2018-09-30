@@ -21,9 +21,9 @@ class CreateEmployeesTable extends Migration
             $table->integer('bamboo_id')->unsigned()->nullable();
             $table->integer('payroll_id')->unsigned()->nullable();
             $table->integer('netsuite_id')->unsigned()->nullable();
-            $table->string('department')->nullable()->nullable();
-            $table->string('job_title')->nullable()->nullable();
-            $table->tinyInteger('division_id')->unsigned()->nullable();
+            $table->integer('department_id')->nullable()->nullable();
+            $table->integer('position_id')->nullable()->nullable();
+            $table->integer('division_id')->unsigned()->nullable();
             $table->decimal('accrued_pto', 5, 2)->default(0);
             $table->timestamp('hired_at')->nullable();
             $table->timestamp('started_at')->nullable();

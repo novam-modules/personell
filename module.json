@@ -9,8 +9,6 @@
         "Admin\\Personell\\Providers\\PersonellServiceProvider"
     ],
     "aliases": {},
-    "files": [
-        "start.php"
-    ],
+    "files": [],
     "requires": []
 }

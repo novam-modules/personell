@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Personell\Providers;
+namespace Admin\personell\Providers;
 
 use Admin\Personell\Models\Contact;
 use Admin\Personell\Models\Employee;
@@ -42,7 +42,7 @@ class PersonellServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->register(RouteServiceProvider::class);
     }
 
     /**

@@ -16,7 +16,7 @@ class EmployeesData extends Resource
     {
         $user = parent::toArray($request);
 
-        $data = $this->load("contact", "group", "employee");
+        $data = $this->load("contact", "group", "employee", "employee.department");
         return $data;;
     }
 }

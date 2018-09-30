@@ -10,9 +10,15 @@ class ContactObserver
 
     public function saving(Contact $emp)
     {
-        $nameParts = explode(" ", $emp->name);
-        $emp->last_name = array_pop($nameParts);
-        $emp->first_name = implode(" ", $nameParts);
-        unset($emp->name);
+        // if(!$emp->first_tname || !$emp->last_name){
+
+        //     $nameParts = explode(" ", $emp->name);
+
+        //     $emp->last_name = array_pop($nameParts);
+        //     $emp->first_name = implode(" ", $nameParts);
+
+        //     unset($emp->name);
+
+        // }
     }
 }
