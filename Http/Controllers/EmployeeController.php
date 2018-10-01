@@ -76,7 +76,7 @@ class EmployeeController extends Controller
      */
     public function show($id)
     {
-        $employee = User::find($id)->employee;
+        $employee = User::find($id)->load('employee');
         return view('personell::employees.show', get_defined_vars());
     }
 

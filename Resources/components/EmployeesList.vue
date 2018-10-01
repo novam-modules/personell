@@ -33,7 +33,7 @@
             :modal-title="'New employee'">
             <employee-editor
                 :action="action"
-                :model='employees'>
+                :model="employees">
             </employee-editor>
         </modal-viewer>
     </div>
@@ -45,7 +45,8 @@ export default {
   props: ["model", "action", "deptUrl"],
   data() {
     return {
-        employee: {}
+        employee: {},
+        employees: this.model || {}
     };
   },
   created() {
@@ -64,10 +65,10 @@ export default {
             axios
                 .get(url || '/admin/personell/employees')
                 .then( res => {
-                    self.employees = res.data.data;
+                    self.employees = res.data.data || {};
                 })
                 .catch( err => {
-                    self.errors = err.response.data.errors;
+                    self.errors = err.response.data || {};
                 })
         },
         loadEmployee(employee){

@@ -87,7 +87,7 @@
                     </div>
                     <div class="form-group">
                         <label for="name">Hire Date</label>
-                        <date-picker v-model="hired_at" :config="options"></date-picker>
+                        <date-picker v-model="hired_at" :config="{format: 'Y-m-d'}"></date-picker>
                         <!-- <input type="date" autocomplete="off" v-model="hired_at" :class="[{'is-invalid' : errors.hired_at}, 'form-control']" required /> -->
                         <span class="invalid-feedback" v-if="errors.hired_at">
                             {{ errors.hired_at }}
@@ -146,7 +146,7 @@
 <script>
 export default {
     name: "employee-editor",
-    props: ["model", "action", "dept-url"],
+    props: ["model", "action", "dept-url", "dept-data", "emp-url", "emp-data"],
     data(){
         return {
             name: "",
@@ -161,27 +161,38 @@ export default {
             hr_id: null,
             team_id: null,
             errors: {},
-            employees: [],
-            employee: {},
             employee_id: null,
-            positions: [],
-            position: {},
             position_id: null,
-            departments: [],
-            department: {},
             department_id: null,
             submitting: false,
             options: {}
         }
     },
     mounted(){
+
         this.getDepartments();
         // this.departments = this.$parent.$options.methods.getData(deptUrl);
     },
     computed: {
-        // employee(){
-        //     // return this.$data;
-        // }
+        employee(){
+
+        },
+        employees(){
+            return this.empData || [];
+        },
+        department(){
+
+        },
+        departments(){
+            return this.deptData || [{id:1, name:'Regular Staff'}];
+        },
+        position(){
+
+        },
+        positions(){
+            return this.deptData || [{id:1, name:'Full Time Job'}];
+        }
+
 
     },
     watch: {
@@ -229,23 +240,23 @@ export default {
             //Add User First
             axios.post(self.action, postData)
                 .then( res => {
-                    self.employee = res.data;
+                    self.employee = res.data || {};
                 })
                 .catch( err => {
-                    self.errors = err.response.data.errors;
+                    self.errors = err.response.data.errors || {};
                 })
                 .then(() => self.submitting = false );
         },
         getDepartments(){
-            let self = this, deptUrl = this.$parent.deptUrl;
+            let self = this, deptUrl = this.deptUrl || this.$parent.deptUrl;
             if(this.departments.length) return;
 
             axios.get(deptUrl)
                 .then( res => {
-                    this.departments = res.data;
+                    this.departments = res.data || [];
                 })
                 .catch( err => {
-                    self.errors = err.response.data.errors;
+                    self.errors = err.response.data.errors || {};
                 })
                 .then();
         },

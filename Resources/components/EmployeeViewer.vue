@@ -1,9 +1,18 @@
 <template>
     <div id="employee-viewer">
 
-        <form action="" method="post">
-            <form-group :type="'text'"></form-group>
-        </form>
+        <div class="card-decks">
+            <form class="card">
+                <div class="card-header">
+                    <h4 class="card-title mb-0">
+                        Basic Info
+                    </h4>
+                </div>
+                <div class="card-body">
+
+                </div>
+            </form>
+        </div>
     </div>
 </template>
 

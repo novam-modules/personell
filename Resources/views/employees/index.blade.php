@@ -14,17 +14,19 @@
     <employees-list
         :model='@json($employees)'
         :action="'/admin/personell/employees'"
-        :dept-url="'/admin/personell/departments'"
-    >
+        :dept-url="'/admin/personell/departments'">
+
+        {{--  <modal-viewer
+            :modal-id="'new-emp'"
+            :modal-title="'New employee'">
+            <employee-editor
+                :action="'/admin/personell/employees'"
+                :dept-url="'/admin/personell/departments'"
+                :model='@json($employees)'>
+            </employee-editor>
+        </modal-viewer>  --}}
+
     </employees-list>
 
-    <modal-viewer
-        :modal-id="'new-emp'"
-        :modal-title="'New employee'">
-        <employee-editor
-            :action="'/admin/personell/employees'"
-            :dept-url="'/admin/personell/departments'"
-            :model='@json($employees)'>
-        </employee-editor>
-    </modal-viewer>
+
 @stop
