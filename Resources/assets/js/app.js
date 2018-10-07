@@ -6,6 +6,9 @@ Vue.component('EmployeesList', require('../../components/EmployeesList.vue'));
 Vue.component('Departments', require('../../components/Departments.vue'));
 Vue.component('JobPositions', require('../../components/JobPositions.vue'));
 
+Vue.component('EmployeeProfile', require('../../components/employees/Profile.vue'));
+Vue.component('EmployeeContacts', require('../../components/employees/Contacts.vue'));
+
 const personell = new Vue({
     el: "#personell",
     methods: {

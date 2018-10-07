@@ -76,19 +76,33 @@
     <ul class="nav nav-tabs" id="myTab" role="tablist">
         <li class="nav-item">
             <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                aria-selected="true">Time Card</a>
+                aria-selected="true">
+                Welcome
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="payroll"
+                aria-selected="false">
+                Payroll Data
+            </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
-                aria-selected="false">Payroll Data</a>
+                aria-selected="false">
+                Payroll Data
+            </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="messages-tab" data-toggle="tab" href="#messages" role="tab" aria-controls="messages"
-                aria-selected="false">Assignments</a>
+                aria-selected="false">
+                Assignments
+            </a>
         </li>
         <li class="nav-item">
             <a class="nav-link" id="settings-tab" data-toggle="tab" href="#settings" role="tab" aria-controls="settings"
-                aria-selected="false">Permissions</a>
+                aria-selected="false">
+                Permissions
+            </a>
         </li>
     </ul>
 </nav>
