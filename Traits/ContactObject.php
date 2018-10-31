@@ -1,7 +1,7 @@
 <?php
-namespace Admin\Personell\Traits;
+namespace Modules\Personell\Traits;
 
-use Admin\Personell\Models\Contact;
+use Modules\Personell\Models\Contact;
 
 /**
  * Contact

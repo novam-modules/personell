@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Personell\Providers;
+namespace Modules\Personell\Providers;
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
@@ -12,7 +12,7 @@ class RouteServiceProvider extends ServiceProvider
      *
      * @var string
      */
-    protected $namespace = 'Admin\Personell\Http\Controllers';
+    protected $namespace = 'Modules\Personell\Http\Controllers';
 
     /**
      * Called before routes are registered.

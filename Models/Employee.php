@@ -1,10 +1,10 @@
 <?php
 
-namespace Admin\Personell\Models;
+namespace Modules\Personell\Models;
 
 use App\Models\Auth\User;
 use Illuminate\Database\Eloquent\Model;
-use Admin\Personell\Traits\DepartmentObject;
+use Modules\Personell\Traits\DepartmentObject;
 
 class Employee extends Model
 {

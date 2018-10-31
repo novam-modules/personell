@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Personell\Models;
+namespace Modules\Personell\Models;
 
 use Illuminate\Database\Eloquent\Model;
 

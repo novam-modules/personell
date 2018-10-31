@@ -1,4 +1,4 @@
-@extends('layouts.admin')
+@extends('layouts.master')
 @section('head')
     <title>Personell {{ isset($title)? " :: $title": '' }}</title>
 @endsection

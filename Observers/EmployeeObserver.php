@@ -1,8 +1,8 @@
 <?php
 
-namespace Admin\Personell\Observers;
+namespace Modules\Personell\Observers;
 
-use Admin\Personell\Models\Employee;
+use Modules\Personell\Models\Employee;
 
 class EmployeeObserver
 {

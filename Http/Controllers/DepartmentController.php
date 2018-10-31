@@ -1,11 +1,11 @@
 <?php
 
-namespace Admin\Personell\Http\Controllers;
+namespace Modules\Personell\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Admin\Personell\Models\Department;
+use Modules\Personell\Models\Department;
 
 class DepartmentController extends Controller
 {

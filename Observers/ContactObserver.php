@@ -1,8 +1,8 @@
 <?php
 
-namespace Admin\Personell\Observers;
+namespace Modules\Personell\Observers;
 
-use Admin\Personell\Models\Contact;
+use Modules\Personell\Models\Contact;
 
 class ContactObserver
 {
