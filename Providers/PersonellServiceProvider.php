@@ -1,13 +1,13 @@
 <?php
 
-namespace Admin\personell\Providers;
+namespace Modules\personell\Providers;
 
-use Admin\Personell\Models\Contact;
-use Admin\Personell\Models\Employee;
+use Modules\Personell\Models\Contact;
+use Modules\Personell\Models\Employee;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
-use Admin\Personell\Observers\ContactObserver;
-use Admin\Personell\Observers\EmployeeObserver;
+use Modules\Personell\Observers\ContactObserver;
+use Modules\Personell\Observers\EmployeeObserver;
 
 class PersonellServiceProvider extends ServiceProvider
 {

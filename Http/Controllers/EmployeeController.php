@@ -1,15 +1,15 @@
 <?php
 
-namespace Admin\Personell\Http\Controllers;
+namespace Modules\Personell\Http\Controllers;
 
 use App\Models\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Admin\Personell\Models\Contact;
-use Admin\Personell\Models\Employee;
-use Admin\Personell\Http\Resources\EmployeesData;
-use Admin\Personell\Http\Requests\CreateEmployeeRequest;
+use Modules\Personell\Models\Contact;
+use Modules\Personell\Models\Employee;
+use Modules\Personell\Http\Resources\EmployeesData;
+use Modules\Personell\Http\Requests\CreateEmployeeRequest;
 
 class EmployeeController extends Controller
 {

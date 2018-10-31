@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Personell\Http\Resources;
+namespace Modules\Personell\Http\Resources;
 
 use Illuminate\Http\Resources\Json\Resource;
 

@@ -1,7 +1,7 @@
 <?php
-namespace Admin\Personell\Traits;
+namespace Modules\Personell\Traits;
 
-use Admin\Personell\Models\Department;
+use Modules\Personell\Models\Department;
 
 /**
  * Department

@@ -13,16 +13,16 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Admin\\Personell\\Providers\\PersonellServiceProvider"
+                "Modules\\Personell\\Providers\\PersonellServiceProvider"
             ],
             "aliases": {
-                
+
             }
         }
     },
     "autoload": {
         "psr-4": {
-            "Admin\\Personell\\": ""
+            "Modules\\Personell\\": ""
         }
     }
 }
