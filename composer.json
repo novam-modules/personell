@@ -1,0 +1,28 @@
+{
+    "name": "novam-modules/personnell",
+    "description": "",
+    "authors": [
+        {
+            "name": "Hilkiah Makemo",
+            "email": "hilmak01@gmail.com"
+        }
+    ],
+    "require": {
+        "composer/installers": "~1.0"
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\Personnel\\Providers\\PersonnelServiceProvider"
+            ],
+            "aliases": {
+
+            }
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Modules\\Personnel\\": ""
+        }
+    }
+}
