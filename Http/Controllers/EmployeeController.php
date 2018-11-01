@@ -19,9 +19,23 @@ class EmployeeController extends Controller
      */
     public function index(Request $request)
     {
-        $employees = EmployeesData::collection(User::all());
+        // $employees = EmployeesData::collection(User::all());
 
-        if($request->ajax()) return $employees;
+        // if($request->ajax()) return $employees;
+        $Faker = \Faker\Factory::create();
+        $genders = ['male' => 'men', 'female' => 'women'];
+
+        for ($i = 0, $n = 20; $i < $n; $i++) {
+            $employees[$i] = (object)[
+                'id' => $i,
+                'gender' => $gender = ['male', 'female'][mt_rand(0,1)],
+                'name' => $Faker->name($gender),
+                'job' => $Faker->jobTitle,
+                'email' => $Faker->email,
+                'phone' => $Faker->phoneNumber,
+                'photo' => "https://randomuser.me/api/portraits/{$genders[$gender]}/{$i}.jpg"
+            ];
+        }
 
         return view('personnel::employees.index', compact('employees'));
     }
@@ -42,30 +56,13 @@ class EmployeeController extends Controller
      */
     public function store(CreateEmployeeRequest $request)
     {
+        try {
 
-        try{
-            $EMP = \DB::transaction(function () use($request) {
 
-                $password = bcrypt($request->password);
-                $request->merge(compact('password'));
+        }
+        catch (\Exception $e) {
 
-                $user  = User::create($request->all());
-                $group = $user->group;
-
-                $request->merge(['user_id' => $user->id]);
-
-                $employee  = Employee::create($request->all());
-
-                $contact  = Contact::create($request->all());
-
-                return compact('user', 'group', 'employee', 'contact');
-
-            });
-            return response()->json($EMP);
-
-        } catch(\Exception $e){
-
-            return response('Error: '.$e->getMessage(), 500);
+            return response('Error: ' . $e->getMessage(), 500);
         }
 
     }
