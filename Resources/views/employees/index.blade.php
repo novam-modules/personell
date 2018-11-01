@@ -38,13 +38,25 @@
         @endforeach
 
     </div>
-
-
-    <data-modal id="new-emp" label="newEmpLabel" title="New Employee">
-        <form action="{{ route('employees.store') }}">
-
-        </form>
-    </data-modal>
-
+    <div class="modal fade" id="new-emp" tabindex="-1" role="dialog" aria-labelledby="newEmployeeLabel" aria-hidden="true">
+    <form class="modal-dialog" role="document" action="{{ route('employees.store') }}" method="POST">
+        @csrf
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="newEmployeeLabel">New Employee Registration</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            @include('personnel::employees.create')
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+        </div>
+    </form>
+    </div>
 
 @endsection

@@ -57,14 +57,16 @@ class EmployeeController extends Controller
     public function store(CreateEmployeeRequest $request)
     {
         try {
-
-
+            $request->merge([
+                'acct_id' => $request->user()->acct_id,
+                'group_id' => -1
+            ]);
+            User::create($request->except('_token'));
+            return back()->withStatus(['success' => 'Done']);
         }
         catch (\Exception $e) {
-
-            return response('Error: ' . $e->getMessage(), 500);
+            return back()->withStatus(['error' => $e->getMessage()]);
         }
-
     }
 
     /**
