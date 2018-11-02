@@ -59,7 +59,7 @@ class EmployeeController extends Controller
         try {
             $request->merge([
                 'password' => bcrypt($request->password),
-                'acct_id' => $request->user()->acct_id,
+                'account_id' => $request->user()->account_id,
                 'group_id' => -1
             ]);
 
