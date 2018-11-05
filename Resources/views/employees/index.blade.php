@@ -20,7 +20,7 @@
                     <div class="media align-items-center">
                         {{--  <span style="background-image: url(https://d19m59y37dris4.cloudfront.net/admn-premium/1-4-4/img/avatar-{{$emp->id}}.jpg)"
                             class="avatar avatar-xl mr-3"></span>  --}}
-                            <span style="background-image: url({{$emp->photo}})"
+                            <span style="background-image: url({{$emp->photo ?? '//placehold.it/100X100?text='.acronym($emp->email)}})"
                             class="avatar avatar-xl mr-3"></span>
                         <div class="media-body overflow-hidden">
                             <h5 class="card-text mb-0">{{ $emp->name }}</h5>

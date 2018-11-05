@@ -24,6 +24,8 @@ class CreateEmployeesTable extends Migration
             $table->integer('department_id')->nullable()->nullable();
             $table->integer('position_id')->nullable()->nullable();
             $table->integer('division_id')->unsigned()->nullable();
+            $table->string('boarding')->nullable();
+            $table->string('status')->nullable();
             $table->decimal('accrued_pto', 5, 2)->default(0);
             $table->timestamp('hired_at')->nullable();
             $table->timestamp('started_at')->nullable();

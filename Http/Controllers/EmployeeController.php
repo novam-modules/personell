@@ -6,7 +6,6 @@ use App\Models\Auth\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Routing\Controller;
-use Modules\Personnel\Models\Contact;
 use Modules\Personnel\Models\Employee;
 use Modules\Personnel\Http\Resources\EmployeesData;
 use Modules\Personnel\Http\Requests\CreateEmployeeRequest;
@@ -36,6 +35,9 @@ class EmployeeController extends Controller
                 'photo' => "https://randomuser.me/api/portraits/{$genders[$gender]}/{$i}.jpg"
             ];
         }
+        $Account = $request->user()->account;
+        $employees = $Account->users;
+        // $employees = $employees + User::all();
 
         return view('personnel::employees.index', compact('employees'));
     }
@@ -63,7 +65,10 @@ class EmployeeController extends Controller
                 'group_id' => -1
             ]);
 
-            User::create($request->except('_token'));
+            $User = User::create($request->except('_token'));
+            $request->merge(['user_id' => $User->id]);
+            $Employee  = Employee::create($request->all());
+            $User->notify(new EmploymentAdded($Employee));
             return back()->withStatus(['success' => 'Done']);
         }
         catch (\Exception $e) {
